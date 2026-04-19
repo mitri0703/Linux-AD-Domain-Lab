@@ -1,4 +1,4 @@
-# Project 7 – Linux Active Directory Domain Lab (Samba + Windows 11)
+# Project 3 – Linux Active Directory Domain Lab (Samba + Windows 11)
 
 ![Samba AD](https://img.shields.io/badge/Samba-Active%20Directory%20DC-0078D4?style=flat&logo=linux&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
