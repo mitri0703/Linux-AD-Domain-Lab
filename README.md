@@ -95,7 +95,7 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 3. Confirmed SOA, NS, A, and AAAA records for `mydfir.local` and `dc01`
 4. Verified DC A record resolving to `10.211.55.4`
 
-![Samba DNS Zone Validation](Project%20Screenshots/samba-dns-zone-validation.png)
+![Samba DNS Zone Validation](samba-dns-zone-validation.png)
 *samba-tool dns query confirming SOA, NS, A, and AAAA records for the mydfir.local zone*
 
 ---
@@ -138,7 +138,7 @@ echo %logonserver%
 \\DC01
 ```
 
-![helpdeskadmin Domain Login Validation](Project%20Screenshots/helpdeskadmin-domain-login-validation.png)
+![helpdeskadmin Domain Login Validation](helpdeskadmin-domain-login-validation.png)
 *whoami returning mydfir\helpdeskadmin and %logonserver% returning \\DC01 — full domain authentication confirmed*
 
 ---
