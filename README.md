@@ -38,7 +38,7 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 | Test User | `helpdeskadmin` |
 | Network | Parallels shared virtual network |
 
-![Lab Architecture Diagram](Project%20Screenshots/lab-architecture-diagram.png)
+![Lab Architecture Diagram](lab-architecture-diagram.png)
 *Lab architecture showing Ubuntu DC, Windows 11 client, virtual switch, and cloud connectivity*
 
 ---
@@ -56,7 +56,7 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 
 **Principle Applied:** Enterprise-grade domain controller deployment using open-source Samba — identical protocol stack to Windows Server AD (LDAP, Kerberos, SMB, DNS).
 
-![Samba AD Service Running](Project%20Screenshots/01-samba-ad-service-running.png)
+![Samba AD Service Running](01-samba-ad-service-running.png)
 *samba-ad-dc.service confirmed active (running) — status: "ready to serve connections"*
 
 ---
@@ -67,7 +67,7 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 1. Ran `hostname -I` on the Ubuntu DC to confirm IP assignment
 2. Verified DC IP: `10.211.55.4` — matching DNS and architecture config
 
-![Linux DC IP Validation](Project%20Screenshots/linux-dc-ip-validation.png)
+![Linux DC IP Validation](linux-dc-ip-validation.png)
 *hostname -I confirming DC IP address at 10.211.55.4 on the Ubuntu server*
 
 ---
@@ -82,7 +82,7 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 2. Ran `samba-tool user list` to confirm all users present in directory
 3. Verified domain accounts: jdoe, Administrator, krbtgt, Guest, tsmith, helpdeskadmin
 
-![Samba Users List](Project%20Screenshots/02-samba-users-list.png)
+![Samba Users List](02-samba-users-list.png)
 *samba-tool user create and user list — all domain users provisioned and confirmed*
 
 ---
@@ -106,14 +106,14 @@ This project builds a fully functional **Active Directory domain lab** using Ubu
 
 Windows client ran `nslookup mydfir.local` and received repeated DNS request timeouts. Server was shown as Unknown despite DNS being pointed to `10.211.55.4`. Root cause: Samba DNS was not listening on the correct external interface.
 
-![DNS Timeout Before Fix](Project%20Screenshots/dns-timeout-troubleshooting-before-fix.png)
+![DNS Timeout Before Fix](dns-timeout-troubleshooting-before-fix.png)
 *nslookup mydfir.local timing out — DNS not resolving from Windows client before interface fix*
 
 ### Windows DHCP Renew — Networking Fix
 
 After resolving the Parallels shared network issue, `ipconfig /release` and `ipconfig /renew` were run on Windows 11 to force the client back onto the correct subnet. IPv4 address confirmed as `10.211.55.5` with gateway `10.211.55.1`.
 
-![Windows DHCP Renew Success](Project%20Screenshots/windows-dhcp-renew-success.png)
+![Windows DHCP Renew Success](windows-dhcp-renew-success.png)
 *ipconfig /release and /renew confirming Windows client IP 10.211.55.5 on correct subnet*
 
 | Issue | Root Cause | Resolution |
